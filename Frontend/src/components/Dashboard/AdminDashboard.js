@@ -1,37 +1,90 @@
 import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import AdminNavbar from '../Navbar/AdminNavbar';
+
 function Dashboard() {
-    var gg = JSON.parse(localStorage.getItem("user"));
-    console.log(gg.roles)
-    const history = useNavigate();
-    return (
-        <div className='Dashboard'>
-            <AdminNavbar/>
-            <div className="kjhg" style={{ marginLeft: "1350px", marginTop: "28px" }}>
-        
-     
-   </div>
-   <div className="mjkh" style={{ marginTop: "168px", marginLeft: "20px" }}>
-        <h1 className="heading" style={{ marginTop: "26px",marginLeft: "371px" }}>Welcome to Admin Dashboard {gg.username}! </h1>
-        
-        <div className="tekken" style={{ marginLeft: "100px" }}>
-        <div className="create" style={{ marginLeft: "339px", marginTop: "100px" }} onClick={() => history('/create-quiz')}>
-            <Button>create a quiz</Button>
-            </div>
-        <div className="see" style={{ marginLeft: "510px", marginTop: "-37px" }
-            }>
-                <Button onClick={()=> history('/see-all-quiz')}>see created quizzes</Button>
-            </div>
-            <div className="stats" style={{ marginLeft: "721px", marginTop: "-39px" }}
+  const gg = JSON.parse(localStorage.getItem("user"));
+  const history = useNavigate();
+
+  // Blue-green theme colors
+  const themeColors = {
+    background: '#e0f7f5', // light teal
+    primary: '#00796b',    // teal dark
+    buttonBackground: '#00796b',
+    buttonHover: '#004d40',
+    textPrimary: '#004d40',
+  };
+
+  return (
+    <div style={{ backgroundColor: themeColors.background, minHeight: '100vh', paddingBottom: '50px' }}>
+      <AdminNavbar />
+
+      <div className="container py-5">
+        <h1
+          className="text-center mb-5"
+          style={{ color: themeColors.primary, fontWeight: '700' }}
+        >
+          Welcome to Admin Dashboard, {gg.username}!
+        </h1>
+
+        <div className="row justify-content-center g-4">
+          <div className="col-md-3 d-flex justify-content-center">
+            <Button
+              onClick={() => history('/create-quiz')}
+              style={{
+                backgroundColor: themeColors.buttonBackground,
+                borderColor: themeColors.buttonBackground,
+                fontWeight: '600',
+                padding: '12px 24px',
+                width: '100%',
+                maxWidth: '200px',
+              }}
+              onMouseOver={e => e.currentTarget.style.backgroundColor = themeColors.buttonHover}
+              onMouseOut={e => e.currentTarget.style.backgroundColor = themeColors.buttonBackground}
             >
-                <Button onClick={()=> history('/student-stats')}>show quizzes stats</Button>
-            </div>
+              Create a Quiz
+            </Button>
+          </div>
+
+          <div className="col-md-3 d-flex justify-content-center">
+            <Button
+              onClick={() => history('/see-all-quiz')}
+              style={{
+                backgroundColor: themeColors.buttonBackground,
+                borderColor: themeColors.buttonBackground,
+                fontWeight: '600',
+                padding: '12px 24px',
+                width: '100%',
+                maxWidth: '200px',
+              }}
+              onMouseOver={e => e.currentTarget.style.backgroundColor = themeColors.buttonHover}
+              onMouseOut={e => e.currentTarget.style.backgroundColor = themeColors.buttonBackground}
+            >
+              See Created Quizzes
+            </Button>
+          </div>
+
+          <div className="col-md-3 d-flex justify-content-center">
+            <Button
+              onClick={() => history('/student-stats')}
+              style={{
+                backgroundColor: themeColors.buttonBackground,
+                borderColor: themeColors.buttonBackground,
+                fontWeight: '600',
+                padding: '12px 24px',
+                width: '100%',
+                maxWidth: '200px',
+              }}
+              onMouseOver={e => e.currentTarget.style.backgroundColor = themeColors.buttonHover}
+              onMouseOut={e => e.currentTarget.style.backgroundColor = themeColors.buttonBackground}
+            >
+              Show Quizzes Stats
+            </Button>
+          </div>
         </div>
-        </div>
-        </div>
-    );
-  }
-  
-  export default Dashboard;
-  
+      </div>
+    </div>
+  );
+}
+
+export default Dashboard;
