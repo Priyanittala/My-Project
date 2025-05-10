@@ -106,7 +106,7 @@ function UpdateQuestion() {
       {/* <div className="backing" style={{ marginTop: "-544px", marginLeft: "1283px" }}>
         <Button  onClick={() => history("/Admin-page")}>Back to Admin Dashboard</Button>
         </div>
-        <div className="mofification" style={{ marginTop: "-46px", marginLeft: "20px" }}>
+        
         <Button  onClick={() => history("/modify-quiz",{state : {quiz_id : quiz_id} })}>Back to Modify Question page</Button>
         </div> */}
     </>
