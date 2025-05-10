@@ -13,21 +13,30 @@
   }
 }
 
+/* Blue-green themed header */
 .App-header {
-  background-color: #282c34;
+  background-color: #004d40; /* dark teal */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #b2dfdb; /* light teal text */
 }
 
+/* Links styled with teal accent */
 .App-link {
-  color: #61dafb;
+  color: #26a69a; /* medium teal */
+  transition: color 0.3s ease;
 }
 
+.App-link:hover,
+.App-link:focus {
+  color: #00796b; /* dark teal */
+}
+
+/* Keyframe animation remains the same */
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
